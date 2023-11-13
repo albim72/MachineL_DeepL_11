@@ -1,4 +1,6 @@
 import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
 
 
 data = {
@@ -19,3 +21,16 @@ print(pu2.info())
 print("______________________________________")
 dffirma = pd.read_csv('firma.csv')
 print(dffirma)
+
+print("______________________________________")
+
+t = np.arange(0.0,2.0,0.01)
+s = 1 + np.sin(2*np.pi*t)
+
+
+fig,ax = plt.subplots()
+ax.plot(t,s)
+ax.set(xlabel='czas [s]', ylabel='napięcie prądu [mv]', title = ' pomiar napięcia prądu w czasie...')
+ax.grid()
+fig.savefig('test.png')
+plt.show()
