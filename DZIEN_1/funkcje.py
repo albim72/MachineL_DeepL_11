@@ -31,3 +31,22 @@ def multifiveplus(n):
 
 dwa = list(map(multifiveplus,kr))
 print(dwa)
+
+#przykład 3
+
+def witaj(imie):
+    return f"Miło Cię widzieć {imie}"
+
+def konkurs(imie,punkty):
+    return f'Uczestnik konkursu {imie}, liczba punktów: {punkty}'
+
+def kierowca(imie,latad,prawoj = True,kraj="PL"):
+    return f"kierowca {imie}, doświadczenie: {latad} lat, prawo jazdy: {prawoj}"
+
+def osoba(funkcja,*args):
+    return funkcja(*args)
+
+print(osoba(witaj,"Henryk"))
+print(osoba(konkurs,"Olga", 56))
+print(osoba(kierowca,"Leon",6))
+print(osoba(kierowca,"Leon",6,False,"SLO"))
