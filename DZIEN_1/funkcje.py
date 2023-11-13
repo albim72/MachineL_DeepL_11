@@ -50,3 +50,27 @@ print(osoba(witaj,"Henryk"))
 print(osoba(konkurs,"Olga", 56))
 print(osoba(kierowca,"Leon",6))
 print(osoba(kierowca,"Leon",6,False,"SLO"))
+
+#przykład 4 - funkcje dekoracyjne
+def startstop(funkcja):
+    def wrapper(*args):
+        print("_"*35)
+        print("startowanie funckji...")
+        funkcja(*args)
+        print("kończenie funkcji...")
+        print("_"*35)
+    return wrapper
+
+
+def zawijanie(czego):
+    print(f'zawijanie {czego} w sreberka.')
+
+zw = startstop(zawijanie)
+zw("czekoladek")
+
+@startstop
+def dmuchanie(czego):
+    print(f"dmuchanie {czego} na torcie urodzinowym")
+
+dmuchanie("świeczek")
+
