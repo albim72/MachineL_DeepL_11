@@ -74,3 +74,22 @@ def dmuchanie(czego):
 
 dmuchanie("świeczek")
 
+
+def startoblicz(funkcja):
+    def wrapper(*args):
+        print("_"*35)
+        print("startowanie funckji...")
+        g = funkcja(*args) + 4
+        print(f"wynik 6*f(x) = {6*g}")
+        print("kończenie funkcji...")
+        print("_"*35)
+        return g
+    return wrapper
+
+@startoblicz
+def fx(a,b):
+    return a*2+b
+
+wynik = fx(6,8)
+print(wynik)
+
