@@ -39,3 +39,21 @@ axis[2].set_title('złożenie funkcji falowych o częstotliwościach 4Hz i 7Hz')
 axis[2].plot(time,amplitude)
 axis[2].set_xlabel('Czas [s]')
 axis[2].set_ylabel('Amplituda')
+
+#transformacja Fouriera dla złożenia funkcji - amplituda
+fourierTransform = np.fft.fft(amplitude)/len(amplitude)
+fourierTransform = fourierTransform[range(int(len(amplitude)/2))]
+
+tpCount = len(amplitude)
+values = np.arange(int(tpCount/2))
+timePeriod = tpCount/samplingFrequency
+
+frequencies = values/timePeriod
+
+#wykres transformacji Fouriera dla złożenia funkckji
+axis[3].set_title('transformacja Fouriera dla złożenia funkckji o częstotliwościach 4Hz i 7Hz')
+axis[3].plot(frequencies,abs(fourierTransform))
+axis[3].set_xlabel('Częstotliwość')
+axis[3].set_ylabel('Amplituda')
+
+plt.show()
